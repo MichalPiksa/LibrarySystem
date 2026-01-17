@@ -1,0 +1,30 @@
+# Build / output
+bin/
+obj/
+publish/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.sln.iml
+
+# NuGet / packages
+*.nupkg
+*.nuget/
+
+# Test / coverage
+TestResults/
+coverage/
+
+# User settings / logs / db / OS
+*.user
+*.suo
+*.userosscache
+*.log
+*.sqlite
+*.db
+*.db-journal
+.DS_Store
+
+# Configs that may contain secrets
+appsettings.*.json
