@@ -1,10 +1,13 @@
+using Asp.Versioning;
 using LibrarySystem.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibrarySystem.Controllers;
 
-[Route("api/[controller]")]
+
 [ApiController]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class BooksController : ControllerBase
 {
     static private List<Book> books = new List<Book>
@@ -53,7 +56,7 @@ public class BooksController : ControllerBase
 
         newBook.Id = Guid.NewGuid();
         books.Add(newBook);
-        return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
+        return CreatedAtAction(nameof(GetBookById), new { version = "1.0", id = newBook.Id }, newBook);
     }
 
     [HttpPut("{id}")]
@@ -73,7 +76,7 @@ public class BooksController : ControllerBase
         existingBook.Title = updatedBook.Title;
         existingBook.Author = updatedBook.Author;
         existingBook.PublishedYear = updatedBook.PublishedYear;
-        return Ok(existingBook);
+        return NoContent();
     }
 
     [HttpDelete("{id}")]

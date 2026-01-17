@@ -1,15 +1,16 @@
 @HostAddress = http://localhost:5024
-@bookId = 53092afa-6051-4401-b66c-9f68a4852677
+@apiVersion = v1.0
+@bookId = b64b1a41-8e0b-418c-81c8-28ea5d03c421
 
-GET {{HostAddress}}/api/Books/
+GET {{HostAddress}}/api/{{apiVersion}}/Books/
 Accept: application/json
 
 ###
-GET {{HostAddress}}/api/Books/{{bookId}}
+GET {{HostAddress}}/api/{{apiVersion}}/Books/{{bookId}}
 Accept: application/json
 
 ###
-POST {{HostAddress}}/api/Books/
+POST {{HostAddress}}/api/{{apiVersion}}/Books/
 Content-Type: application/json
 
 {
@@ -19,7 +20,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{HostAddress}}/api/Books/{{bookId}}
+PUT {{HostAddress}}/api/{{apiVersion}}/Books/{{bookId}}
 Content-Type: application/json
 
 {
@@ -29,5 +30,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{HostAddress}}/api/Books/{{bookId}}
+DELETE {{HostAddress}}/api/{{apiVersion}}/Books/{{bookId}}
 Accept: application/json
